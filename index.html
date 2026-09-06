@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buying Signal Bot — Tool Monsters</title>
+<meta name="description" content="A bot that watches X for people leaving their tools, finds out who they are, and hands you a short list every morning. Setup playbook by Tool Monsters.">
+<style>
+  :root{
+    --bg:#0c0d10; --panel:#141619; --line:#24272d;
+    --ink:#eceef1; --mute:#9aa1ac; --accent:#c6f24e; --accent-ink:#0c0d10;
+    --max:760px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  header{border-bottom:1px solid var(--line);padding:26px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block}
+  .brand a{color:var(--ink);text-decoration:none}
+  .tag{color:var(--mute);font-size:13px;margin-top:4px}
+  h1{font-size:38px;line-height:1.15;letter-spacing:-.025em;margin:44px 0 14px}
+  .lede{font-size:18px;color:var(--mute);margin:0 0 10px}
+  .lede strong{color:var(--ink)}
+  .meta{color:var(--mute);font-size:14px;margin:22px 0 0;padding-bottom:34px;border-bottom:1px solid var(--line)}
+  h2{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:44px 0 14px}
+  h3{font-size:19px;letter-spacing:-.01em;margin:30px 0 8px}
+  p{margin:0 0 14px}
+  ul,ol{margin:0 0 16px;padding-left:20px}
+  li{margin:0 0 8px}
+  strong{color:#fff}
+  code{
+    background:var(--panel);border:1px solid var(--line);border-radius:5px;
+    padding:2px 6px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent)
+  }
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:0 0 18px}
+  .note{border-left:3px solid var(--accent);background:var(--panel);padding:14px 18px;border-radius:0 10px 10px 0;margin:0 0 18px;color:var(--mute)}
+  .note strong{color:var(--ink)}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 18px}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--mute);font-weight:600;font-size:13px;letter-spacing:.03em;text-transform:uppercase}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .win{color:var(--accent);font-weight:700}
+  .zero{color:#ff6b6b;font-weight:700}
+  blockquote{margin:0 0 18px;padding:16px 20px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--mute)}
+  blockquote strong{color:var(--ink)}
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 0 60px;color:var(--mute);font-size:14px}
+  footer a{color:var(--accent);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+  @media (max-width:600px){ h1{font-size:29px} .wrap{padding:0 18px} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span><a href="https://toolmonsters.com">Tool Monsters</a></div>
+    <div class="tag">Your next customers are already around you.</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h1>Buying Signal Bot</h1>
+  <p class="lede">A bot that watches X for people leaving their tools, finds out who they are, and hands you a short list every morning.</p>
+  <p class="lede"><strong>Grok Bot</strong> does the watching. <strong>FullEnrich</strong> turns a profile into a person you can qualify and contact.</p>
+  <p class="meta">Setup takes about twenty minutes. After that it runs on its own.</p>
+
+  <h2>1 · Grok Bot</h2>
+  <ul>
+    <li>Create a new bot in Grok Bot, or open an existing one.</li>
+    <li>Connect the <strong>X plugin</strong> and sign in once.</li>
+    <li>Check your <strong>X API credit balance</strong> before running a big search. This is the step people forget, and the search quietly returns nothing without it.</li>
+    <li>Name it something you will recognise in the sidebar. <em>Buying Signal Bot</em> works.</li>
+  </ul>
+
+  <h2>2 · FullEnrich</h2>
+  <ul>
+    <li>Create an account and generate an <strong>API key</strong>.</li>
+    <li>Put the key where the bot can read it: <code>/home/box/.config/fullenrich/api_key</code></li>
+    <li><strong>What it costs:</strong> a people lookup is about <strong>0.25 credit</strong> when a person is found. A work email is about <strong>1 credit</strong> when found. Nothing is charged when nothing is found.</li>
+  </ul>
+  <div class="note"><strong>The rule that keeps this cheap:</strong> never enrich a post until it has survived the filters. Enrichment is the last step, not the first.</div>
+
+  <h2>3 · What you have to tell it</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Input</th><th>Example</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Tools to watch</strong></td><td>Clay, Apollo, ZoomInfo, your three closest competitors</td><td>Exact product names. A vague topic returns noise.</td></tr>
+      <tr><td><strong>Pain sentences</strong></td><td><em>looking for an alternative</em> · <em>switching from</em> · <em>moving off</em> · <em>we cancelled</em> · <em>too expensive</em> · <em>the data is bad</em></td><td>The words are the whole filter. Words are intent, topics are noise.</td></tr>
+      <tr><td><strong>Buyer gate</strong></td><td>Company 11 to 1000 people · founder, C-level, VP or Director</td><td>Who can actually sign. Everything else gets dropped.</td></tr>
+      <tr><td><strong>Schedule</strong></td><td>Every day at 7:00 your time, last 24 hours only</td><td>Freshness is the value. A three-week-old complaint is already answered.</td></tr>
+      <tr><td><strong>Output</strong></td><td>A table. No outreach, ever.</td><td>Person, company, quote, link, opening line, and the email if you asked.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>4 · What it does every morning</h2>
+  <ol>
+    <li>Searches X over the last 24 hours, using your sentences and your tool names.</li>
+    <li>Drops the memes, the jokes, the quote tweets and the promo posts.</li>
+    <li>On the survivors: reads the bio for a LinkedIn link, or a name and a company.</li>
+    <li>Runs the FullEnrich lookup: who they are, the company, its size, their role.</li>
+    <li>Drops wrong size and wrong role, and tells you how many it dropped.</li>
+    <li>Only then, and only on the keepers, pulls the work email if you asked for it.</li>
+    <li>Delivers the table in the chat. It sends nothing to anyone, ever.</li>
+  </ol>
+
+  <h2>5 · What you get back</h2>
+  <blockquote>
+    <strong>Name</strong> · handle · role · company · size · email (if enriched)<br>
+    what they actually wrote · link to the post<br>
+    one opening line, built only on their own words<br>
+    keep or drop, with the reason
+  </blockquote>
+
+  <h2>6 · Reality check, from the real runs</h2>
+  <p>This is measured, not assumed. Run it on your own category before you trust it.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Market</th><th>Posts scanned</th><th>Real signals</th></tr></thead>
+    <tbody>
+      <tr><td>Developer tools</td><td class="num">15</td><td class="num win">8</td></tr>
+      <tr><td>AI tools</td><td class="num">15</td><td class="num win">6</td></tr>
+      <tr><td>CRMs</td><td class="num">25</td><td class="num">2</td></tr>
+      <tr><td>Marketing tools</td><td class="num">15</td><td class="num">2</td></tr>
+      <tr><td>Sales and data tools</td><td class="num">25</td><td class="num zero">0</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>People who build software announce their moves in public, with the price and the reason. Nobody posts that their company is changing data provider.</p>
+
+  <h3>Three things that will save you money</h3>
+  <ul>
+    <li>If your buyers are in the quiet half, keep this exact setup and point the watch somewhere else: review sites, forums, and the job ads they post three months later to fix the problem themselves.</li>
+    <li>A thin X bio with no LinkedIn and no company means skip. Do not burn a credit on a guess.</li>
+    <li>The drop count is the most useful number in the routine. Keeping almost everybody means your words are too wide. Dropping everybody means your competitor list is wrong.</li>
+  </ul>
+
+  <hr>
+
+  <h2>The rule to set on day one</h2>
+  <p>Require your approval for anything that leaves the room: a message, a reply, a post.</p>
+  <p><strong>The bot drafts. You sign.</strong></p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Built by Yonathan Cohen · <a href="https://toolmonsters.com">Tool Monsters</a> · <a href="mailto:hello@toolmonsters.com">hello@toolmonsters.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
