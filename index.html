@@ -89,6 +89,10 @@
   }
   .out strong{color:var(--ink)}
 
+  main a{color:var(--blue);text-decoration:none;font-weight:500;border-bottom:1px solid rgba(47,111,224,.35)}
+  main a:hover{border-bottom-color:var(--blue)}
+  .kicker a{color:var(--blue);border-bottom:none}
+  .cta a{border-bottom:1px solid rgba(255,255,255,.5)}
   .rule{border:0;border-top:1px solid var(--line);margin:40px 0}
 
   .cta{
@@ -117,7 +121,7 @@
   <div class="hero">
     <h1>Your buyers are already complaining. <em>This bot finds them.</em></h1>
     <p class="lede">It watches X for people leaving their tools, works out who they are, and hands you a short list every morning.</p>
-    <p class="lede lede--mute"><strong>Grok Bot</strong> does the watching. <strong>FullEnrich</strong> turns a profile into a person you can qualify and contact. Setup takes about twenty minutes, then it runs on its own.</p>
+    <p class="lede lede--mute"><strong>Grok Bot</strong> does the watching. <strong><a href="https://fullenrich.com" target="_blank" rel="noopener">FullEnrich</a></strong> turns a profile into a person you can qualify and contact. Setup takes about twenty minutes, then it runs on its own.</p>
   </div>
 
   <div class="kicker">1 · Grok Bot</div>
@@ -130,10 +134,10 @@
     </ul>
   </div>
 
-  <div class="kicker">2 · FullEnrich</div>
+  <div class="kicker">2 · <a href="https://fullenrich.com" target="_blank" rel="noopener">FullEnrich</a></div>
   <div class="card">
     <ul>
-      <li>Create an account and generate an <strong>API key</strong>.</li>
+      <li><a href="https://fullenrich.com" target="_blank" rel="noopener">Create a FullEnrich account</a> and generate an <strong>API key</strong>.</li>
       <li>Put the key where the bot can read it: <code>/home/box/.config/fullenrich/api_key</code></li>
       <li><strong>What it costs:</strong> a people lookup is about <strong>0.25 credit</strong> when a person is found, a work email about <strong>1 credit</strong>. Nothing is charged when nothing is found.</li>
     </ul>
@@ -160,7 +164,7 @@
       <li>Searches X over the last 24 hours, using your sentences and your tool names.</li>
       <li>Drops the memes, the jokes, the quote tweets and the promo posts.</li>
       <li>On the survivors: reads the bio for a LinkedIn link, or a name and a company.</li>
-      <li>Runs the FullEnrich lookup: who they are, the company, its size, their role.</li>
+      <li>Runs the <a href="https://fullenrich.com" target="_blank" rel="noopener">FullEnrich</a> lookup: who they are, the company, its size, their role.</li>
       <li>Drops wrong size and wrong role, and tells you how many it dropped.</li>
       <li>Only then, and only on the keepers, pulls the work email if you asked for it.</li>
       <li>Delivers the table in the chat. It sends nothing to anyone, ever.</li>
